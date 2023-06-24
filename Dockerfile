@@ -6,6 +6,13 @@ RUN apk add --no-cache socat tini
 COPY src/docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
-ENV TS_PORTFORWARD=
+ENV SOCAT_BIND_TYPE=
+ENV SOCAT_BIND_IFACE=
+ENV SOCAT_BIND_OPTS=
+ENV SOCAT_CONNECT_TYPE=
+ENV SOCAT_CONNECT_IFACE=
+ENV SOCAT_CONNECT_OPTS=
+
+ENV SOCAT_PORTFORWARD=
 
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
